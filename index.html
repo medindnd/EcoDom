@@ -1,122 +1,152 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EcoDom — Кондиционеры в Алматы</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background: #f4f8fa; color: #222; line-height: 1.6; }
-    header {
-      background: linear-gradient(135deg, #0077b6, #00b4d8);
-      color: white;
-      padding: 80px 20px 60px;
-      text-align: center;
-    }
-    header h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      letter-spacing: 2px;
-    }
-    header p {
-      font-size: 1.3rem;
-      margin-top: 15px;
-    }
-    .phone-link {
-      display: inline-block;
-      margin-top: 25px;
-      background: white;
-      color: #0077b6;
-      padding: 12px 25px;
-      border-radius: 30px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .phone-link:hover { background: #ade8f4; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EcoDom — установка и продажа кондиционеров</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+<style>
+  body {
+    margin: 0; font-family: 'Inter', sans-serif; background:#f7f9fc; color:#222;
+  }
+  header {
+    background: linear-gradient(135deg, #0077b6, #00b4d8);
+    color: #fff; padding: 90px 20px 60px; text-align: center;
+  }
+  header h1 {
+    font-weight: 700; font-size: 3.8rem; margin-bottom: 10px; letter-spacing: 2px;
+  }
+  header p.slogan {
+    font-style: italic; font-weight: 500; font-size: 1.8rem; color: #ade8f4;
+    margin-bottom: 30px;
+  }
+  header a.phone {
+    display: inline-block; font-weight: 600; font-size: 1.8rem; color: #0077b6;
+    background: #fff; padding: 14px 36px; border-radius: 50px; text-decoration: none;
+    box-shadow: 0 6px 15px rgb(0 180 216 / 0.3);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  header a.phone:hover {
+    background-color: #90e0ef; color: #005f73;
+  }
+  section {
+    max-width: 1100px; margin: 60px auto 90px; padding: 0 20px;
+  }
+  h2.section-title {
+    text-align: center; font-weight: 700; font-size: 2.8rem; margin-bottom: 40px;
+    color: #0077b6;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 45px;
+  }
+  .service-card {
+    background: #fff; border-radius: 20px; padding: 30px 25px 40px;
+    box-shadow: 0 12px 30px rgb(0 0 0 / 0.07);
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 50px rgb(0 0 0 / 0.12);
+  }
+  .service-card img {
+    width: 100%; border-radius: 15px; margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgb(0 0 0 / 0.1);
+    object-fit: cover; height: 180px;
+  }
+  .service-card h3 {
+    font-size: 1.8rem; font-weight: 700; margin-bottom: 12px; color: #0077b6;
+  }
+  .service-card p {
+    font-size: 1.1rem; font-weight: 500; color: #555; line-height: 1.5;
+  }
+  #contact {
+    background: #0077b6; color: #fff; padding: 50px 20px; border-radius: 20px;
+    max-width: 1100px; margin: 0 auto 60px; text-align: center;
+    box-shadow: 0 15px 40px rgb(0 0 0 / 0.15);
+  }
+  #contact h2 {
+    font-size: 2.5rem; font-weight: 700; margin-bottom: 25px;
+  }
+  #contact p {
+    font-size: 1.3rem; font-weight: 500; margin: 6px 0;
+  }
+  #contact a {
+    color: #90e0ef; font-weight: 600; text-decoration: none;
+  }
+  #contact a:hover {
+    text-decoration: underline;
+  }
+  footer {
+    text-align: center; font-weight: 500; font-size: 1rem; color: #777;
+    user-select: none; padding: 20px 10px 40px;
+  }
 
-    section.services {
-      max-width: 1100px;
-      margin: 60px auto;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-    .service {
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.07);
-      padding: 30px;
-      text-align: center;
-      transition: transform 0.3s;
-    }
-    .service:hover { transform: translateY(-8px); }
-    .service i { font-size: 40px; color: #00b4d8; margin-bottom: 15px; }
-    .service h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; }
-    .service p { font-size: 1rem; color: #444; }
-
-    .images {
-      max-width: 1100px;
-      margin: 50px auto;
-      padding: 0 20px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .images img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 14px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      background: #0077b6;
-      color: white;
-      font-weight: 500;
-    }
-  </style>
+  /* Адаптив */
+  @media (max-width: 480px) {
+    header h1 { font-size: 2.8rem; }
+    header p.slogan { font-size: 1.3rem; }
+    header a.phone { font-size: 1.3rem; padding: 12px 28px; }
+    h2.section-title { font-size: 2rem; }
+    .service-card h3 { font-size: 1.4rem; }
+    .service-card p { font-size: 1rem; }
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>EcoDom</h1>
-    <p>Установка и продажа кондиционеров в Алматы и Алматинской области</p>
-    <a href="tel:+77770212190" class="phone-link">+7 777 021 21 90</a>
-  </header>
 
-  <section class="services">
-    <div class="service">
-      <i class="fas fa-store"></i>
+<header data-aos="fade-down" data-aos-duration="1500" data-aos-easing="ease-in-out">
+  <h1>EcoDom</h1>
+  <p class="slogan" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1200">
+    Свежий воздух в каждый дом
+  </p>
+  <a href="tel:+87770212190" class="phone" aria-label="Позвонить по телефону" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="1200">
+    +7 777 021 21 90
+  </a>
+</header>
+
+<section aria-label="Основные услуги">
+  <h2 class="section-title" data-aos="fade-up" data-aos-duration="1200">Наши услуги</h2>
+  <div class="services-grid">
+    <article class="service-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1100">
+      <img src="https://images.unsplash.com/photo-1560184897-5bf99f6f2f44?auto=format&fit=crop&w=800&q=80" alt="Установка кондиционера" />
+      <h3>Установка кондиционеров</h3>
+      <p>Профессиональная установка бытовых и полупромышленных моделей с гарантией качества и соблюдением всех норм.</p>
+    </article>
+    <article class="service-card" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1100">
+      <img src="https://images.unsplash.com/photo-1580719897784-35f2cc65e53f?auto=format&fit=crop&w=800&q=80" alt="Продажа кондиционеров" />
       <h3>Продажа кондиционеров</h3>
-      <p>Бытовые и полупромышленные модели от проверенных брендов с гарантией качества.</p>
-    </div>
-    <div class="service">
-      <i class="fas fa-hammer"></i>
-      <h3>Установка</h3>
-      <p>Профессиональная установка по стандартам. Чисто, быстро, с гарантией.</p>
-    </div>
-    <div class="service">
-      <i class="fas fa-screwdriver-wrench"></i>
-      <h3>Обслуживание и ремонт</h3>
-      <p>Обслуживание, чистка и ремонт кондиционеров любых марок.</p>
-    </div>
-  </section>
+      <p>Широкий ассортимент от ведущих брендов для дома и бизнеса с гарантией и качественным сервисом.</p>
+    </article>
+    <article class="service-card" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1100">
+      <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=800&q=80" alt="Ремонт и обслуживание кондиционеров" />
+      <h3>Ремонт и обслуживание</h3>
+      <p>Профилактика и ремонт для продления срока службы техники. Обслуживание по выезду в г. Алматы и Алматинской области.</p>
+    </article>
+  </div>
+</section>
 
-  <section class="images">
-    <img src="https://images.unsplash.com/photo-1597595991621-08db186d36c4?auto=format&fit=crop&w=800&q=80" alt="Монтаж кондиционера">
-    <img src="https://images.unsplash.com/photo-1607082349567-7050d0bd3266?auto=format&fit=crop&w=800&q=80" alt="Установка кондиционера">
-    <img src="https://images.unsplash.com/photo-1623051356909-535d313437d9?auto=format&fit=crop&w=800&q=80" alt="Мастер с оборудованием">
-  </section>
+<section id="contact" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400" aria-label="Контактная информация">
+  <h2>Свяжитесь с нами</h2>
+  <p>Работаем по г. Алматы и Алматинской области по выезду</p>
+  <p>Телефон: <a href="tel:+87770212190">+7 777 021 21 90</a></p>
+</section>
 
-  <footer>
-    EcoDom — Гарантия, качество, профессионализм. Работаем по выезду в Алматы и области. <br>
-    Телефон: <a href="tel:+77770212190" style="color:#ade8f4">+7 777 021 21 90</a>
-  </footer>
+<footer>
+  &copy; 2025 EcoDom — профессиональная установка и продажа кондиционеров
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init({
+    once: true,
+    duration: 1000,
+    easing: 'ease-in-out',
+  });
+</script>
+
 </body>
 </html>
