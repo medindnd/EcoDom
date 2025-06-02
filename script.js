@@ -1,1 +1,0 @@
-console.log("EcoDom site loaded.");
