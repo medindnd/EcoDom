@@ -121,15 +121,52 @@
       font-size: 1.1rem;
       color: #555;
       line-height: 1.5;
-<section class="eco-gallery">
-  <h2>Наш экологичный мир</h2>
-  <div class="eco-images">
-    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Лес и природа" />
-    <img src="https://images.unsplash.com/photo-1468071174046-657d9d351a40?auto=format&fit=crop&w=600&q=80" alt="Зеленые листья" />
-    <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=80" alt="Речка и камни" />
-    <img src="https://images.unsplash.com/photo-1439396087961-98bc12c21176?auto=format&fit=crop&w=600&q=80" alt="Солнечные лучи в лесу" />
-  </div>
-</section>
+    }
+
+    /* Галерея изображений */
+    .eco-images {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto 90px;
+      padding: 0 20px;
+      flex-wrap: wrap;
+    }
+
+    .eco-images img {
+      width: 320px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 8px 15px rgba(0, 116, 182, 0.3);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+    }
+
+    .eco-images img:hover {
+      transform: scale(1.07);
+      box-shadow: 0 15px 25px rgba(0, 116, 182, 0.6);
+    }
+
+    @media (max-width: 768px) {
+      .eco-images img {
+        width: 45vw;
+        height: 150px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .eco-images {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .eco-images img {
+        width: 90vw;
+        height: 180px;
+      }
+    }
+
     /* Контактный блок */
     #contact {
       background: #0077b6;
@@ -246,6 +283,13 @@
   </div>
 </section>
 
+<!-- Новая секция с картинками -->
+<section class="eco-images" aria-label="Галерея кондиционеров" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
+  <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Современный кондиционер на стене" />
+  <img src="https://images.unsplash.com/photo-1570733102747-bf7ea96a8bbd?auto=format&fit=crop&w=600&q=80" alt="Монтаж кондиционера специалистом" />
+  <img src="https://images.unsplash.com/photo-1616355708498-b4ea518f4d47?auto=format&fit=crop&w=600&q=80" alt="Обслуживание кондиционера" />
+</section>
+
 <section id="contact" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="500">
   <h2>Контакты</h2>
   <p>Работаем по г. Алматы и Алматинской области по выезду</p>
@@ -267,3 +311,5 @@
 </script>
 </body>
 </html>
+
+
