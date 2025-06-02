@@ -121,7 +121,19 @@
       font-size: 1.1rem;
       color: #555;
       line-height: 1.5;
-    }
+    
+
+<section class="eco-gallery">
+  <h2>Наш экологичный мир</h2>
+  <div class="eco-images">
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Лес и природа" />
+    <img src="https://images.unsplash.com/photo-1468071174046-657d9d351a40?auto=format&fit=crop&w=600&q=80" alt="Зеленые листья" />
+    <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=80" alt="Речка и камни" />
+    <img src="https://images.unsplash.com/photo-1439396087961-98bc12c21176?auto=format&fit=crop&w=600&q=80" alt="Солнечные лучи в лесу" />
+  </div>
+</section>
+
+
 
     /* Контактный блок */
     #contact {
@@ -260,57 +272,3 @@
 </script>
 </body>
 </html>
-.eco-gallery {
-  max-width: 1200px;
-  margin: 60px auto;
-  text-align: center;
-  padding: 0 20px;
-}
-
-.eco-gallery h2 {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #2e6a38;
-  margin-bottom: 30px;
-  font-size: 2.5rem;
-  font-weight: 700;
-}
-
-.eco-images {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-  justify-content: center;
-}
-
-.eco-images img {
-  width: 260px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 15px;
-  box-shadow: 0 8px 15px rgba(46, 106, 56, 0.3);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  cursor: pointer;
-}
-
-.eco-images img:hover {
-  transform: scale(1.08);
-  box-shadow: 0 15px 25px rgba(46, 106, 56, 0.6);
-}
-
-@media (max-width: 768px) {
-  .eco-images img {
-    width: 45vw;
-    height: 150px;
-  }
-}
-
-@media (max-width: 480px) {
-  .eco-images {
-    flex-direction: column;
-    gap: 20px;
-  }
-  .eco-images img {
-    width: 90vw;
-    height: 180px;
-  }
-}
