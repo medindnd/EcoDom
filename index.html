@@ -260,3 +260,57 @@
 </script>
 </body>
 </html>
+.eco-gallery {
+  max-width: 1200px;
+  margin: 60px auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.eco-gallery h2 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #2e6a38;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.eco-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+.eco-images img {
+  width: 260px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(46, 106, 56, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.eco-images img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 15px 25px rgba(46, 106, 56, 0.6);
+}
+
+@media (max-width: 768px) {
+  .eco-images img {
+    width: 45vw;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .eco-images {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .eco-images img {
+    width: 90vw;
+    height: 180px;
+  }
+}
