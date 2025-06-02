@@ -1,43 +1,122 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EcoDom — Кондиционеры</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>EcoDom — Кондиционеры в Алматы</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #f4f8fa; color: #222; line-height: 1.6; }
+    header {
+      background: linear-gradient(135deg, #0077b6, #00b4d8);
+      color: white;
+      padding: 80px 20px 60px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+    header p {
+      font-size: 1.3rem;
+      margin-top: 15px;
+    }
+    .phone-link {
+      display: inline-block;
+      margin-top: 25px;
+      background: white;
+      color: #0077b6;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .phone-link:hover { background: #ade8f4; }
+
+    section.services {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    .service {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+      padding: 30px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .service:hover { transform: translateY(-8px); }
+    .service i { font-size: 40px; color: #00b4d8; margin-bottom: 15px; }
+    .service h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; }
+    .service p { font-size: 1rem; color: #444; }
+
+    .images {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 0 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .images img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: #0077b6;
+      color: white;
+      font-weight: 500;
+    }
+  </style>
 </head>
 <body>
-  <header class="hero">
+  <header>
     <h1>EcoDom</h1>
-    <p class="slogan">Установка и продажа кондиционеров</p>
-    <a class="phone" href="tel:+77770212190">+7 777 021 21 90</a>
-    <p class="subtitle">Обслуживание по г. Алматы и Алматинской области. Гарантия качества и профессиональный подход.</p>
+    <p>Установка и продажа кондиционеров в Алматы и Алматинской области</p>
+    <a href="tel:+77770212190" class="phone-link">+7 777 021 21 90</a>
   </header>
 
   <section class="services">
     <div class="service">
-      <img src="images/installation1.jpg" alt="Установка кондиционера">
-      <h3>Установка кондиционеров</h3>
-      <p>Профессиональная установка бытовых и полупромышленных моделей.</p>
-    </div>
-    <div class="service">
-      <img src="images/installation2.jpg" alt="Продажа кондиционеров">
+      <i class="fas fa-store"></i>
       <h3>Продажа кондиционеров</h3>
-      <p>Подбор и поставка оборудования от проверенных брендов.</p>
+      <p>Бытовые и полупромышленные модели от проверенных брендов с гарантией качества.</p>
     </div>
     <div class="service">
-      <img src="images/installation3.jpg" alt="Обслуживание кондиционеров">
+      <i class="fas fa-hammer"></i>
+      <h3>Установка</h3>
+      <p>Профессиональная установка по стандартам. Чисто, быстро, с гарантией.</p>
+    </div>
+    <div class="service">
+      <i class="fas fa-screwdriver-wrench"></i>
       <h3>Обслуживание и ремонт</h3>
-      <p>Сервисное обслуживание и устранение неисправностей. Не основной профиль.</p>
+      <p>Обслуживание, чистка и ремонт кондиционеров любых марок.</p>
     </div>
   </section>
 
-  <footer>
-    <p>&copy; 2025 EcoDom — Гарантия. Качество. Надёжность.</p>
-  </footer>
+  <section class="images">
+    <img src="https://images.unsplash.com/photo-1597595991621-08db186d36c4?auto=format&fit=crop&w=800&q=80" alt="Монтаж кондиционера">
+    <img src="https://images.unsplash.com/photo-1607082349567-7050d0bd3266?auto=format&fit=crop&w=800&q=80" alt="Установка кондиционера">
+    <img src="https://images.unsplash.com/photo-1623051356909-535d313437d9?auto=format&fit=crop&w=800&q=80" alt="Мастер с оборудованием">
+  </section>
 
-  <script src="script.js"></script>
+  <footer>
+    EcoDom — Гарантия, качество, профессионализм. Работаем по выезду в Алматы и области. <br>
+    Телефон: <a href="tel:+77770212190" style="color:#ade8f4">+7 777 021 21 90</a>
+  </footer>
 </body>
 </html>
