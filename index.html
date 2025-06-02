@@ -1,262 +1,848 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EcoDom - Установка и продажа кондиционеров</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoDom - Профессиональная установка кондиционеров в Алматы</title>
+    <meta name="description" content="Профессиональная продажа и установка кондиционеров в Алматы. Гарантия качества на оборудование и работы.">
+    <style>
+        /* Все стили CSS */
+        :root {
+            --primary-color: #2e86de;
+            --secondary-color: #54a0ff;
+            --dark-color: #222f3e;
+            --light-color: #f5f6fa;
+            --accent-color: #01a3a4;
+            --text-color: #333;
+            --text-light: #777;
+        }
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <!-- FontAwesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-  <!-- AOS CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0; padding: 0;
-      background: #f9fafb;
-      color: #222;
-      overflow-x: hidden;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-    header {
-      background: linear-gradient(135deg, #0077b6, #00b4d8);
-      color: white;
-      padding: 100px 20px 70px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    header h1 {
-      font-weight: 700;
-      font-size: 3.8rem;
-      margin-bottom: 15px;
-      letter-spacing: 2px;
-    }
-    header .slogan {
-      font-weight: 500;
-      font-size: 1.8rem;
-      color: #ade8f4;
-      margin: -10px 0 25px;
-      letter-spacing: 1.5px;
-      font-style: italic;
-    }
-    header p.phone {
-      font-size: 1.8rem;
-      font-weight: 600;
-      margin-bottom: 25px;
-      cursor: pointer;
-      transition: color 0.3s;
-      display: inline-block;
-      border: 2px solid white;
-      padding: 10px 30px;
-      border-radius: 50px;
-    }
-    header p.phone:hover {
-      background-color: white;
-      color: #0077b6;
-    }
-    header p.subtitle {
-      font-size: 1.4rem;
-      font-weight: 500;
-      opacity: 0.85;
-      max-width: 500px;
-      margin: 0 auto;
-      line-height: 1.4;
-    }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
 
-    /* Главный блок услуг */
-    #services {
-      max-width: 1100px;
-      margin: 60px auto 90px;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 50px;
-    }
-    .service-item {
-      background: white;
-      border-radius: 20px;
-      padding: 40px 30px 50px;
-      box-shadow: 0 15px 30px rgb(0 0 0 / 0.07);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    .service-item:hover {
-      transform: translateY(-15px);
-      box-shadow: 0 25px 45px rgb(0 0 0 / 0.12);
-    }
-    .service-item i {
-      font-size: 70px;
-      color: #00b4d8;
-      margin-bottom: 25px;
-      transition: color 0.3s ease;
-    }
-    .service-item:hover i {
-      color: #0077b6;
-    }
-    .service-item h3 {
-      font-weight: 700;
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-      letter-spacing: 1px;
-    }
-    .service-item p {
-      font-weight: 500;
-      font-size: 1.1rem;
-      color: #555;
-      line-height: 1.5;
-    }
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
 
-    /* Контактный блок */
-    #contact {
-      background: #0077b6;
-      color: white;
-      text-align: center;
-      padding: 70px 20px;
-      border-radius: 20px 20px 0 0;
-      max-width: 1100px;
-      margin: 0 auto 50px;
-      box-shadow: 0 10px 30px rgb(0 0 0 / 0.1);
-    }
-    #contact h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 15px;
-      letter-spacing: 1.5px;
-    }
-    #contact p {
-      font-weight: 500;
-      font-size: 1.3rem;
-      max-width: 550px;
-      margin: 0 auto;
-      line-height: 1.5;
-    }
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            color: var(--dark-color);
+        }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 20px 10px;
-      font-weight: 500;
-      font-size: 1rem;
-      color: #777;
-      user-select: none;
-    }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 15px auto 0;
+        }
 
-    /* Анимация клика по телефону в header */
-    header p.phone:active {
-      transform: scale(0.95);
-      transition: transform 0.1s ease;
-    }
+        /* Header styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
 
-    /* Адаптив */
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 2.8rem;
-      }
-      header p.phone {
-        font-size: 1.3rem;
-        padding: 8px 25px;
-      }
-      #services {
-        gap: 30px;
-      }
-      .service-item i {
-        font-size: 50px;
-      }
-      .service-item h3 {
-        font-size: 1.5rem;
-      }
-      .service-item p {
-        font-size: 1rem;
-      }
-    }
-  </style>
+        .header__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark-color);
+            text-decoration: none;
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav__link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav__link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav__link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav__link:hover::after {
+            width: 100%;
+        }
+
+        .header__phone {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .phone {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .phone:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero section */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .hero__content {
+            max-width: 600px;
+        }
+
+        .hero__title {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            animation: slideInLeft 1s ease-in-out;
+        }
+
+        .hero__text {
+            font-size: 18px;
+            margin-bottom: 30px;
+            animation: slideInLeft 1.2s ease-in-out;
+        }
+
+        .hero__btn {
+            animation: slideInLeft 1.4s ease-in-out;
+        }
+
+        /* Services section */
+        .services {
+            padding: 100px 0;
+            background-color: var(--light-color);
+        }
+
+        .services__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card__icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .service-card__title {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .service-card__text {
+            color: var(--text-light);
+        }
+
+        /* Advantages section */
+        .advantages {
+            padding: 100px 0;
+        }
+
+        .advantages__list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .advantage {
+            text-align: center;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .advantage:hover {
+            transform: scale(1.05);
+        }
+
+        .advantage__number {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .advantage__title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .advantage__text {
+            color: var(--text-light);
+        }
+
+        /* Portfolio section */
+        .portfolio {
+            padding: 100px 0;
+            background-color: var(--light-color);
+        }
+
+        .portfolio__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            height: 250px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .portfolio-item__img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover .portfolio-item__img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-item__overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 20px;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-item__overlay {
+            transform: translateY(0);
+        }
+
+        .portfolio-item__title {
+            font-size: 18px;
+        }
+
+        /* Contacts section */
+        .contacts {
+            padding: 100px 0;
+        }
+
+        .contacts__inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contacts__info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contacts__text {
+            color: var(--text-light);
+        }
+
+        .contacts__phone {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contacts__phone:hover {
+            color: var(--secondary-color);
+        }
+
+        .contacts__worktime {
+            color: var(--text-light);
+        }
+
+        .contacts__btn {
+            align-self: flex-start;
+            margin-top: 20px;
+        }
+
+        .form-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form__input {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form__input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form__btn {
+            width: 100%;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer__inner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer__col {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer__title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .footer__link {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer__link:hover {
+            color: var(--primary-color);
+        }
+
+        .footer__text {
+            color: #ccc;
+        }
+
+        .footer__copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal__content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+            transform: translateY(-50px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.active .modal__content {
+            transform: translateY(0);
+        }
+
+        .modal__close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: color 0.3s ease;
+        }
+
+        .modal__close:hover {
+            color: var(--primary-color);
+        }
+
+        .modal__title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from { 
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .header__inner {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav {
+                gap: 15px;
+            }
+            
+            .hero__title {
+                font-size: 36px;
+            }
+            
+            .contacts__inner {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .header__phone {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .hero__title {
+                font-size: 30px;
+            }
+            
+            .hero__text {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                text-align: center;
+            }
+            
+            .hero__content {
+                margin: 0 auto;
+            }
+            
+            .services__grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .portfolio__grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="#" class="logo">EcoDom</a>
+                <nav class="nav">
+                    <a href="#services" class="nav__link">Услуги</a>
+                    <a href="#about" class="nav__link">О нас</a>
+                    <a href="#portfolio" class="nav__link">Примеры работ</a>
+                    <a href="#contacts" class="nav__link">Контакты</a>
+                </nav>
+                <div class="header__phone">
+                    <a href="tel:87770212190" class="phone">8 (777) 021-21-90</a>
+                    <button class="btn callback-btn">Заказать звонок</button>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<header data-aos="fade-down" data-aos-duration="1500" data-aos-easing="ease-in-out">
-  <h1>EcoDom</h1>
-  <p class="slogan" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1200">
-    Свежий воздух в каждый дом
-  </p>
-  <a href="tel:+87770212190" aria-label="Позвонить по телефону">
-    <p class="phone">+7 777 021 21 90</p>
-  </a>
-  <p class="subtitle" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1300">
-    Ваш надёжный дилер по установке и продаже кондиционеров в г. Алматы и Алматинской области.<br />
-    Гарантия качества и профессиональный сервис.
-  </p>
-</header>
+    <section class="hero">
+        <div class="container">
+            <div class="hero__content">
+                <h1 class="hero__title">Профессиональная установка кондиционеров в Алматы</h1>
+                <p class="hero__text">Гарантия качества оборудования и монтажа от официального дилера ведущих брендов</p>
+                <button class="btn hero__btn">Получить консультацию</button>
+            </div>
+        </div>
+    </section>
 
-<section id="services" aria-label="Основные услуги">
-  <div
-    class="service-item"
-    data-aos="flip-left"
-    data-aos-easing="ease-out-cubic"
-    data-aos-duration="1200"
-  >
-    <i class="fas fa-snowflake"></i>
-    <h3>Продажа кондиционеров</h3>
-    <p>Широкий ассортимент бытовых и полупромышленных моделей от ведущих брендов.</p>
-  </div>
-  <div
-    class="service-item"
-    data-aos="flip-left"
-    data-aos-easing="ease-out-cubic"
-    data-aos-duration="1200"
-    data-aos-delay="150"
-  >
-    <i class="fas fa-tools"></i>
-    <h3>Установка кондиционеров</h3>
-    <p>Профессиональная установка с гарантией качества и соблюдением всех норм.</p>
-  </div>
-  <div
-    class="service-item"
-    data-aos="flip-left"
-    data-aos-easing="ease-out-cubic"
-    data-aos-duration="1200"
-    data-aos-delay="300"
-  >
-    <i class="fas fa-wrench"></i>
-    <h3>Ремонт и обслуживание</h3>
-    <p>Профилактика и ремонт кондиционеров для продления срока службы оборудования.</p>
-  </div>
-</section>
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Наши услуги</h2>
+            <div class="services__grid">
+                <div class="service-card">
+                    <div class="service-card__icon">🛒</div>
+                    <h3 class="service-card__title">Продажа кондиционеров</h3>
+                    <p class="service-card__text">Широкий выбор бытовых и полупромышленных моделей от проверенных производителей</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">🔧</div>
+                    <h3 class="service-card__title">Профессиональный монтаж</h3>
+                    <p class="service-card__text">Установка с соблюдением всех технических норм и требований производителя</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">🏭</div>
+                    <h3 class="service-card__title">Полупромышленные системы</h3>
+                    <p class="service-card__text">Решения для офисов, магазинов и других коммерческих помещений</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="contact" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="500">
-  <h2>Контакты</h2>
-  <p>Работаем по г. Алматы и Алматинской области по выезду</p>
-  <p>Телефон: <a href="tel:+87770212190" style="color:#a8d0f0;">+7 777 021 21 90</a></p>
-</section>
+    <section class="advantages">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <div class="advantages__list">
+                <div class="advantage">
+                    <div class="advantage__number">01</div>
+                    <h3 class="advantage__title">Официальный дилер</h3>
+                    <p class="advantage__text">Работаем напрямую с производителями, что гарантирует оригинальность оборудования</p>
+                </div>
+                <div class="advantage">
+                    <div class="advantage__number">02</div>
+                    <h3 class="advantage__title">Профессиональные мастера</h3>
+                    <p class="advantage__text">Опытные специалисты с профильным образованием и сертификатами</p>
+                </div>
+                <div class="advantage">
+                    <div class="advantage__number">03</div>
+                    <h3 class="advantage__title">Гарантия на работы</h3>
+                    <p class="advantage__text">Предоставляем гарантию на все виды выполненных работ</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<footer>
-  &copy; 2025 EcoDom — Профессиональная установка и продажа кондиционеров
-</footer>
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Примеры наших работ</h2>
+            <div class="portfolio__grid">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Установка кондиционера" class="portfolio-item__img">
+                    <div class="portfolio-item__overlay">
+                        <h3 class="portfolio-item__title">Установка в квартире</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Установка кондиционера" class="portfolio-item__img">
+                    <div class="portfolio-item__overlay">
+                        <h3 class="portfolio-item__title">Монтаж в офисе</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1600566752228-2cdeac8434b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Установка кондиционера" class="portfolio-item__img">
+                    <div class="portfolio-item__overlay">
+                        <h3 class="portfolio-item__title">Полупромышленная система</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- AOS JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
-  AOS.init({
-    once: true,
-    duration: 1000,
-    easing: 'ease-in-out',
-  });
-</script>
+    <section id="contacts" class="contacts">
+        <div class="container">
+            <div class="contacts__inner">
+                <div class="contacts__info">
+                    <h2 class="section-title">Контакты</h2>
+                    <p class="contacts__text">г. Алматы, Алматинская область</p>
+                    <p class="contacts__text">Работаем по всему городу и области</p>
+                    <a href="tel:87770212190" class="contacts__phone">8 (777) 021-21-90</a>
+                    <p class="contacts__worktime">Ежедневно с 9:00 до 20:00</p>
+                    <button class="btn contacts__btn">Заказать выезд мастера</button>
+                </div>
+                <div class="contacts__form">
+                    <h3 class="form-title">Оставьте заявку</h3>
+                    <form class="form">
+                        <input type="text" placeholder="Ваше имя" class="form__input">
+                        <input type="tel" placeholder="Телефон" class="form__input">
+                        <select class="form__input">
+                            <option value="" disabled selected>Выберите услугу</option>
+                            <option>Купить кондиционер</option>
+                            <option>Установка кондиционера</option>
+                            <option>Консультация</option>
+                        </select>
+                        <button type="submit" class="btn form__btn">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__col">
+                    <a href="#" class="logo">EcoDom</a>
+                    <p class="footer__text">Профессиональная установка и продажа кондиционеров в Алматы</p>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__title">Услуги</h4>
+                    <a href="#" class="footer__link">Продажа кондиционеров</a>
+                    <a href="#" class="footer__link">Установка кондиционеров</a>
+                    <a href="#" class="footer__link">Полупромышленные системы</a>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__title">Контакты</h4>
+                    <a href="tel:87770212190" class="footer__link">8 (777) 021-21-90</a>
+                    <p class="footer__link">г. Алматы, Алматинская область</p>
+                </div>
+            </div>
+            <div class="footer__copyright">
+                <p>© 2023 EcoDom. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="callback-modal">
+        <div class="modal__content">
+            <button class="modal__close">&times;</button>
+            <h3 class="modal__title">Заказать звонок</h3>
+            <form class="form">
+                <input type="text" placeholder="Ваше имя" class="form__input">
+                <input type="tel" placeholder="Телефон" class="form__input">
+                <button type="submit" class="btn form__btn">Перезвоните мне</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Весь JavaScript код
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Modal functionality
+            const modal = document.getElementById('callback-modal');
+            const openModalButtons = document.querySelectorAll('.callback-btn, .hero_btn, .contacts_btn');
+            const closeModalButton = document.querySelector('.modal__close');
+            
+            openModalButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            closeModalButton.addEventListener('click', function() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // Header scroll effect
+            const header = document.querySelector('.header');
+            let lastScroll = 0;
+            
+            window.addEventListener('scroll', function() {
+                const currentScroll = window.pageYOffset;
+                
+                if (currentScroll <= 0) {
+                    header.classList.remove('scroll-up');
+                    return;
+                }
+                
+                if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
+                    header.classList.remove('scroll-up');
+                    header.classList.add('scroll-down');
+                } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
+                    header.classList.remove('scroll-down');
+                    header.classList.add('scroll-up');
+                }
+                
+                lastScroll = currentScroll;
+            });
+            
+            // Animation on scroll
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.service-card, .advantage, .portfolio-item');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementPosition < windowHeight - 100) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            // Set initial state for animated elements
+            document.querySelectorAll('.service-card, .advantage, .portfolio-item').forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Run once on load
+        });
+    </script>
 </body>
 </html>
+ 
