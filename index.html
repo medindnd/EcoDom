@@ -1,10 +1,20 @@
-html
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoDom - Установка кондиционеров в Алматы</title>
+    
+    <!-- Google Ads Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17145135016"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17145135016');
+    </script>
+    
     <style>
         :root {
             --primary: #2e86de;
@@ -551,9 +561,25 @@ html
     </div>
 
     <script>
+        // Отслеживание конверсий для Google Ads
+        document.querySelectorAll('a[href^="tel:"], .btn, .floating-call-button').forEach(element => {
+            element.addEventListener('click', function() {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-17145135016/AbC1-DefGhIJKlMnOpQrS',
+                    'value': 1.0,
+                    'currency': 'KZT'
+                });
+            });
+        });
+
         // Показываем всплывающее окно через 10 секунд
         setTimeout(function() {
             if (confirm("Хотите получить бесплатную консультацию? Позвоните нам прямо сейчас!")) {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-17145135016/AbC1-DefGhIJKlMnOpQrS',
+                    'value': 1.0,
+                    'currency': 'KZT'
+                });
                 window.location.href = "tel:87770212190";
             }
         }, 10000);
@@ -578,6 +604,5 @@ html
     </script>
 </body>
 </html>
-
 
  
