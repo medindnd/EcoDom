@@ -38,6 +38,7 @@
             --light: #f5f6fa;
             --text: #333;
             --text-light: #777;
+            --whatsapp: #25D366;
         }
 
         * {
@@ -82,6 +83,8 @@
             background: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             padding: 15px 0;
+            position: relative;
+            z-index: 1000;
         }
 
         .header-inner {
@@ -100,6 +103,7 @@
         .nav {
             display: flex;
             gap: 20px;
+            align-items: center;
         }
 
         .nav-link {
@@ -124,6 +128,29 @@
             color: var(--primary);
         }
 
+        /* WhatsApp Button */
+        .whatsapp-link {
+            display: flex;
+            align-items: center;
+            background: var(--whatsapp);
+            color: white !important;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-link:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+
+        .whatsapp-icon {
+            margin-right: 8px;
+            font-size: 20px;
+        }
+
         /* Hero */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
@@ -146,6 +173,12 @@
             margin-left: auto;
             margin-right: auto;
             animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
         }
 
         .hero .btn {
@@ -322,11 +355,18 @@
             color: #ccc;
         }
 
-        /* Floating Call Button */
-        .floating-call-button {
+        /* Floating Buttons */
+        .floating-buttons {
             position: fixed;
             bottom: 30px;
             right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 9999;
+        }
+
+        .floating-call-button {
             background: linear-gradient(135deg, #4CAF50, #2E7D32);
             color: white;
             padding: 15px 25px;
@@ -335,7 +375,6 @@
             align-items: center;
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            z-index: 9999;
             transition: all 0.3s ease;
             animation: pulse 2s infinite;
         }
@@ -344,13 +383,30 @@
             transform: scale(1.05);
             box-shadow: 0 8px 20px rgba(0,0,0,0.4);
         }
+
+        .floating-whatsapp-button {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
         
-        .call-icon {
+        .floating-whatsapp-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+        
+        .call-icon, .whatsapp-floating-icon {
             font-size: 24px;
             margin-right: 10px;
         }
         
-        .call-text {
+        .call-text, .whatsapp-floating-text {
             font-size: 18px;
             font-weight: bold;
         }
@@ -408,6 +464,11 @@
             .hero-title {
                 font-size: 2rem;
             }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
             
             .phone-promo-title {
                 font-size: 1.5rem;
@@ -417,13 +478,18 @@
                 font-size: 2rem;
             }
 
-            .floating-call-button {
-                padding: 12px 20px;
+            .floating-buttons {
                 bottom: 20px;
                 right: 20px;
             }
+
+            .floating-call-button,
+            .floating-whatsapp-button {
+                padding: 12px 20px;
+            }
             
-            .call-text {
+            .call-text,
+            .whatsapp-floating-text {
                 font-size: 16px;
             }
         }
@@ -459,18 +525,19 @@
                 font-size: 1rem;
             }
 
-            .floating-call-button {
-                padding: 10px 15px;
+            .floating-buttons {
                 bottom: 15px;
                 right: 15px;
             }
             
-            .call-icon {
+            .call-icon,
+            .whatsapp-floating-icon {
                 font-size: 20px;
                 margin-right: 8px;
             }
             
-            .call-text {
+            .call-text,
+            .whatsapp-floating-text {
                 font-size: 14px;
             }
         }
@@ -485,7 +552,11 @@
                 <nav class="nav">
                     <a href="#services" class="nav-link">Услуги</a>
                     <a href="#contacts" class="nav-link">Контакты</a>
-                    <a href="tel:87770212190" class="phone-link" onclick="return gtag_report_conversion('tel:87770212190')">8 (777) 021-21-90</a>
+                    <a href="tel:77770212190" class="phone-link" onclick="return gtag_report_conversion('tel:77770212190')">77770212190</a>
+                    <a href="https://api.whatsapp.com/send/?phone=77770212190&text&type=phone_number&app_absent=045" class="whatsapp-link" target="_blank">
+                        <span class="whatsapp-icon">📱</span>
+                        WhatsApp
+                    </a>
                 </nav>
             </div>
         </div>
@@ -496,7 +567,12 @@
         <div class="container">
             <h1 class="hero-title">Установка и продажа кондиционеров Алматы</h1>
             <p class="hero-text">Гарантия качества оборудования и установки от официального дилера ведущих брендов</p>
-            <a href="tel:87770212190" class="btn" onclick="return gtag_report_conversion('tel:87770212190')">Позвонить сейчас</a>
+            <div class="hero-buttons">
+                <a href="tel:77770212190" class="btn" onclick="return gtag_report_conversion('tel:77770212190')">Позвонить сейчас</a>
+                <a href="https://api.whatsapp.com/send/?phone=77770212190&text&type=phone_number&app_absent=045" class="btn" style="background: var(--whatsapp);" target="_blank">
+                    Написать в WhatsApp
+                </a>
+            </div>
         </div>
     </section>
 
@@ -536,7 +612,7 @@
 
             <div class="phone-promo">
                 <h3 class="phone-promo-title">Звоните прямо сейчас!</h3>
-                <a href="tel:87770212190" class="phone-number" onclick="return gtag_report_conversion('tel:87770212190')">8 (777) 021-21-90</a>
+                <a href="tel:77770212190" class="phone-number" onclick="return gtag_report_conversion('tel:77770212190')">77770212190</a>
                 <p class="phone-subtext">Бесплатная консультация и выезд специалиста</p>
             </div>
         </div>
@@ -558,7 +634,8 @@
                 </div>
                 <div class="footer-col">
                     <h4 class="footer-title">Контакты</h4>
-                    <a href="tel:87770212190" class="footer-link" onclick="return gtag_report_conversion('tel:87770212190')">8 (777) 021-21-90</a>
+                    <a href="tel:77770212190" class="footer-link" onclick="return gtag_report_conversion('tel:77770212190')">77770212190</a>
+                    <a href="https://api.whatsapp.com/send/?phone=77770212190&text&type=phone_number&app_absent=045" class="footer-link" target="_blank">Написать в WhatsApp</a>
                     <p class="footer-link">г. Алматы, Алматинская область</p>
                     <p class="footer-link">Ежедневно с 9:00 до 21:00</p>
                 </div>
@@ -569,17 +646,23 @@
         </div>
     </footer>
 
-    <!-- Floating Call Button -->
-    <div class="floating-call-button" onclick="gtag_report_conversion('tel:87770212190')">
-        <div class="call-icon">📞</div>
-        <div class="call-text">Позвонить сейчас</div>
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <div class="floating-call-button" onclick="gtag_report_conversion('tel:77770212190')">
+            <div class="call-icon">📞</div>
+            <div class="call-text">Позвонить</div>
+        </div>
+        <a href="https://api.whatsapp.com/send/?phone=77770212190&text&type=phone_number&app_absent=045" class="floating-whatsapp-button" target="_blank">
+            <div class="whatsapp-floating-icon">📱</div>
+            <div class="whatsapp-floating-text">WhatsApp</div>
+        </a>
     </div>
 
     <script>
         // Показываем всплывающее окно через 10 секунд
         setTimeout(function() {
             if (confirm("Хотите получить бесплатную консультацию? Позвоните нам прямо сейчас!")) {
-                gtag_report_conversion('tel:87770212190');
+                gtag_report_conversion('tel:77770212190');
             }
         }, 10000);
         
@@ -603,4 +686,3 @@
     </script>
 </body>
 </html>
- 
